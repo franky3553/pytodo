@@ -2,7 +2,9 @@
 
 from flask import Flask, render_template, request, redirect, url_for
 
+## /4/ Import sqlalchemy for DB
 
+from flask_sqlalchemy import SQLAlchemy
 
 ## /2/ Create app instance 
 
