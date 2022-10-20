@@ -10,6 +10,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+## /5/ Set sqlalchemy congfiguartion variables
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app) ## "db" now is "SQLAlchemy(app)"
+
 
 ## /3/ Def home function 
 
