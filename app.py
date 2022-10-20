@@ -29,3 +29,8 @@ class Todo(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String(100))
 	complete = db.Column(db.Boolean)
+
+## /7/ Call create_all (with context)
+
+with app.app_context():
+    db.create_all()
