@@ -33,6 +33,16 @@ def add():
 	db.session.commit()
 	return redirect(url_for("home"))
 
+## /9/ Def update fucntion
+
+@app.get("/update/<int:todo_id>")
+def update(todo_id):
+	todo = db.session.query(Todo).filter(Todo.id == todo_id).first()
+	todo.complete = not todo.complete
+	db.session.commit()
+	return redirect(url_for("home"))
+
+
 ## /6/ Create todo model db
 
 class Todo(db.Model):
