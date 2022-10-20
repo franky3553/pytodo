@@ -42,6 +42,14 @@ def update(todo_id):
 	db.session.commit()
 	return redirect(url_for("home"))
 
+## /10/ Def delete fucntion
+
+@app.get("/delete/<int:todo_id>")
+def delete(todo_id):
+	todo = db.session.query(Todo).filter(Todo.id == todo_id).first()
+	db.session.delete(todo)
+	db.session.commit()
+	return redirect(url_for("home"))
 
 ## /6/ Create todo model db
 
