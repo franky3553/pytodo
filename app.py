@@ -23,6 +23,16 @@ def home():
 	todo_list = db.session.query(Todo).all()
 	return render_template("base.html", todo_list=todo_list)
 
+## /8/ Def add function
+
+@app.post("/add")
+def add():
+	title = request.form.get("title")
+	new_todo = Todo(title=title, complete=False)
+	db.session.add(new_todo)
+	db.session.commit()
+	return redirect(url_for("home"))
+
 ## /6/ Create todo model db
 
 class Todo(db.Model):
